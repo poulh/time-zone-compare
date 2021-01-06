@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA720AC025A6250B007E8CBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720ABF25A6250B007E8CBA /* AppDelegate.swift */; };
+		BA720AC225A6250B007E8CBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720AC125A6250B007E8CBA /* ViewController.swift */; };
+		BA720AC425A6250E007E8CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA720AC325A6250E007E8CBA /* Assets.xcassets */; };
+		BA720AC725A6250E007E8CBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA720AC525A6250E007E8CBA /* Main.storyboard */; };
+		BA720AD325A6250F007E8CBA /* Time_Zone_CompareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720AD225A6250F007E8CBA /* Time_Zone_CompareTests.swift */; };
+		BA720ADE25A6250F007E8CBA /* Time_Zone_CompareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720ADD25A6250F007E8CBA /* Time_Zone_CompareUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BA720ACF25A6250F007E8CBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA720AB425A6250B007E8CBA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA720ABB25A6250B007E8CBA;
+			remoteInfo = "Time Zone Compare";
+		};
+		BA720ADA25A6250F007E8CBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA720AB425A6250B007E8CBA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA720ABB25A6250B007E8CBA;
+			remoteInfo = "Time Zone Compare";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BA720ABC25A6250B007E8CBA /* Time Zone Compare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time Zone Compare.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA720ABF25A6250B007E8CBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BA720AC125A6250B007E8CBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BA720AC325A6250E007E8CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA720AC625A6250E007E8CBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BA720AC825A6250E007E8CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA720AC925A6250E007E8CBA /* Time_Zone_Compare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Time_Zone_Compare.entitlements; sourceTree = "<group>"; };
+		BA720ACE25A6250F007E8CBA /* Time Zone CompareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Time Zone CompareTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA720AD225A6250F007E8CBA /* Time_Zone_CompareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time_Zone_CompareTests.swift; sourceTree = "<group>"; };
+		BA720AD425A6250F007E8CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA720AD925A6250F007E8CBA /* Time Zone CompareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Time Zone CompareUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA720ADD25A6250F007E8CBA /* Time_Zone_CompareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time_Zone_CompareUITests.swift; sourceTree = "<group>"; };
+		BA720ADF25A6250F007E8CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA720AB925A6250B007E8CBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA720ACB25A6250F007E8CBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA720AD625A6250F007E8CBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA720AB325A6250B007E8CBA = {
+			isa = PBXGroup;
+			children = (
+				BA720ABE25A6250B007E8CBA /* Time Zone Compare */,
+				BA720AD125A6250F007E8CBA /* Time Zone CompareTests */,
+				BA720ADC25A6250F007E8CBA /* Time Zone CompareUITests */,
+				BA720ABD25A6250B007E8CBA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BA720ABD25A6250B007E8CBA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA720ABC25A6250B007E8CBA /* Time Zone Compare.app */,
+				BA720ACE25A6250F007E8CBA /* Time Zone CompareTests.xctest */,
+				BA720AD925A6250F007E8CBA /* Time Zone CompareUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA720ABE25A6250B007E8CBA /* Time Zone Compare */ = {
+			isa = PBXGroup;
+			children = (
+				BA720ABF25A6250B007E8CBA /* AppDelegate.swift */,
+				BA720AC125A6250B007E8CBA /* ViewController.swift */,
+				BA720AC325A6250E007E8CBA /* Assets.xcassets */,
+				BA720AC525A6250E007E8CBA /* Main.storyboard */,
+				BA720AC825A6250E007E8CBA /* Info.plist */,
+				BA720AC925A6250E007E8CBA /* Time_Zone_Compare.entitlements */,
+			);
+			path = "Time Zone Compare";
+			sourceTree = "<group>";
+		};
+		BA720AD125A6250F007E8CBA /* Time Zone CompareTests */ = {
+			isa = PBXGroup;
+			children = (
+				BA720AD225A6250F007E8CBA /* Time_Zone_CompareTests.swift */,
+				BA720AD425A6250F007E8CBA /* Info.plist */,
+			);
+			path = "Time Zone CompareTests";
+			sourceTree = "<group>";
+		};
+		BA720ADC25A6250F007E8CBA /* Time Zone CompareUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BA720ADD25A6250F007E8CBA /* Time_Zone_CompareUITests.swift */,
+				BA720ADF25A6250F007E8CBA /* Info.plist */,
+			);
+			path = "Time Zone CompareUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA720ABB25A6250B007E8CBA /* Time Zone Compare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA720AE225A6250F007E8CBA /* Build configuration list for PBXNativeTarget "Time Zone Compare" */;
+			buildPhases = (
+				BA720AB825A6250B007E8CBA /* Sources */,
+				BA720AB925A6250B007E8CBA /* Frameworks */,
+				BA720ABA25A6250B007E8CBA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Time Zone Compare";
+			productName = "Time Zone Compare";
+			productReference = BA720ABC25A6250B007E8CBA /* Time Zone Compare.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BA720ACD25A6250F007E8CBA /* Time Zone CompareTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA720AE525A6250F007E8CBA /* Build configuration list for PBXNativeTarget "Time Zone CompareTests" */;
+			buildPhases = (
+				BA720ACA25A6250F007E8CBA /* Sources */,
+				BA720ACB25A6250F007E8CBA /* Frameworks */,
+				BA720ACC25A6250F007E8CBA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA720AD025A6250F007E8CBA /* PBXTargetDependency */,
+			);
+			name = "Time Zone CompareTests";
+			productName = "Time Zone CompareTests";
+			productReference = BA720ACE25A6250F007E8CBA /* Time Zone CompareTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BA720AD825A6250F007E8CBA /* Time Zone CompareUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA720AE825A6250F007E8CBA /* Build configuration list for PBXNativeTarget "Time Zone CompareUITests" */;
+			buildPhases = (
+				BA720AD525A6250F007E8CBA /* Sources */,
+				BA720AD625A6250F007E8CBA /* Frameworks */,
+				BA720AD725A6250F007E8CBA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA720ADB25A6250F007E8CBA /* PBXTargetDependency */,
+			);
+			name = "Time Zone CompareUITests";
+			productName = "Time Zone CompareUITests";
+			productReference = BA720AD925A6250F007E8CBA /* Time Zone CompareUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA720AB425A6250B007E8CBA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					BA720ABB25A6250B007E8CBA = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					BA720ACD25A6250F007E8CBA = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = BA720ABB25A6250B007E8CBA;
+					};
+					BA720AD825A6250F007E8CBA = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = BA720ABB25A6250B007E8CBA;
+					};
+				};
+			};
+			buildConfigurationList = BA720AB725A6250B007E8CBA /* Build configuration list for PBXProject "Time Zone Compare" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BA720AB325A6250B007E8CBA;
+			productRefGroup = BA720ABD25A6250B007E8CBA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA720ABB25A6250B007E8CBA /* Time Zone Compare */,
+				BA720ACD25A6250F007E8CBA /* Time Zone CompareTests */,
+				BA720AD825A6250F007E8CBA /* Time Zone CompareUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA720ABA25A6250B007E8CBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA720AC425A6250E007E8CBA /* Assets.xcassets in Resources */,
+				BA720AC725A6250E007E8CBA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA720ACC25A6250F007E8CBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA720AD725A6250F007E8CBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA720AB825A6250B007E8CBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA720AC225A6250B007E8CBA /* ViewController.swift in Sources */,
+				BA720AC025A6250B007E8CBA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA720ACA25A6250F007E8CBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA720AD325A6250F007E8CBA /* Time_Zone_CompareTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA720AD525A6250F007E8CBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA720ADE25A6250F007E8CBA /* Time_Zone_CompareUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BA720AD025A6250F007E8CBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA720ABB25A6250B007E8CBA /* Time Zone Compare */;
+			targetProxy = BA720ACF25A6250F007E8CBA /* PBXContainerItemProxy */;
+		};
+		BA720ADB25A6250F007E8CBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA720ABB25A6250B007E8CBA /* Time Zone Compare */;
+			targetProxy = BA720ADA25A6250F007E8CBA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BA720AC525A6250E007E8CBA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA720AC625A6250E007E8CBA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BA720AE025A6250F007E8CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BA720AE125A6250F007E8CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		BA720AE325A6250F007E8CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Time Zone Compare/Time_Zone_Compare.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4KU6579QH8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Time Zone Compare/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.asquaredsoftware.Time-Zone-Compare";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BA720AE425A6250F007E8CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Time Zone Compare/Time_Zone_Compare.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4KU6579QH8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Time Zone Compare/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.asquaredsoftware.Time-Zone-Compare";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		BA720AE625A6250F007E8CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4KU6579QH8;
+				INFOPLIST_FILE = "Time Zone CompareTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.asquaredsoftware.Time-Zone-CompareTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Time Zone Compare.app/Contents/MacOS/Time Zone Compare";
+			};
+			name = Debug;
+		};
+		BA720AE725A6250F007E8CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4KU6579QH8;
+				INFOPLIST_FILE = "Time Zone CompareTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.asquaredsoftware.Time-Zone-CompareTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Time Zone Compare.app/Contents/MacOS/Time Zone Compare";
+			};
+			name = Release;
+		};
+		BA720AE925A6250F007E8CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4KU6579QH8;
+				INFOPLIST_FILE = "Time Zone CompareUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.asquaredsoftware.Time-Zone-CompareUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Time Zone Compare";
+			};
+			name = Debug;
+		};
+		BA720AEA25A6250F007E8CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4KU6579QH8;
+				INFOPLIST_FILE = "Time Zone CompareUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.asquaredsoftware.Time-Zone-CompareUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Time Zone Compare";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA720AB725A6250B007E8CBA /* Build configuration list for PBXProject "Time Zone Compare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA720AE025A6250F007E8CBA /* Debug */,
+				BA720AE125A6250F007E8CBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA720AE225A6250F007E8CBA /* Build configuration list for PBXNativeTarget "Time Zone Compare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA720AE325A6250F007E8CBA /* Debug */,
+				BA720AE425A6250F007E8CBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA720AE525A6250F007E8CBA /* Build configuration list for PBXNativeTarget "Time Zone CompareTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA720AE625A6250F007E8CBA /* Debug */,
+				BA720AE725A6250F007E8CBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA720AE825A6250F007E8CBA /* Build configuration list for PBXNativeTarget "Time Zone CompareUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA720AE925A6250F007E8CBA /* Debug */,
+				BA720AEA25A6250F007E8CBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA720AB425A6250B007E8CBA /* Project object */;
+}
