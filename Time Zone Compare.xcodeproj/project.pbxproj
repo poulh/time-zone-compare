@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA19EBA325A9C2750065CC1E /* DateTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA19EBA225A9C2750065CC1E /* DateTableCellView.swift */; };
 		BA720AC025A6250B007E8CBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720ABF25A6250B007E8CBA /* AppDelegate.swift */; };
 		BA720AC225A6250B007E8CBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720AC125A6250B007E8CBA /* ViewController.swift */; };
 		BA720AC425A6250E007E8CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA720AC325A6250E007E8CBA /* Assets.xcassets */; };
 		BA720AC725A6250E007E8CBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA720AC525A6250E007E8CBA /* Main.storyboard */; };
 		BA720AD325A6250F007E8CBA /* Time_Zone_CompareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720AD225A6250F007E8CBA /* Time_Zone_CompareTests.swift */; };
 		BA720ADE25A6250F007E8CBA /* Time_Zone_CompareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720ADD25A6250F007E8CBA /* Time_Zone_CompareUITests.swift */; };
+		BA720AEF25A62C20007E8CBA /* CityTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720AEE25A62C20007E8CBA /* CityTableCellView.swift */; };
+		BA720AF425A644BF007E8CBA /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720AF325A644BF007E8CBA /* City.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA19EBA225A9C2750065CC1E /* DateTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableCellView.swift; sourceTree = "<group>"; };
 		BA720ABC25A6250B007E8CBA /* Time Zone Compare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time Zone Compare.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA720ABF25A6250B007E8CBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA720AC125A6250B007E8CBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +50,8 @@
 		BA720AD925A6250F007E8CBA /* Time Zone CompareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Time Zone CompareUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA720ADD25A6250F007E8CBA /* Time_Zone_CompareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time_Zone_CompareUITests.swift; sourceTree = "<group>"; };
 		BA720ADF25A6250F007E8CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA720AEE25A62C20007E8CBA /* CityTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableCellView.swift; sourceTree = "<group>"; };
+		BA720AF325A644BF007E8CBA /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +106,11 @@
 				BA720AC125A6250B007E8CBA /* ViewController.swift */,
 				BA720AC325A6250E007E8CBA /* Assets.xcassets */,
 				BA720AC525A6250E007E8CBA /* Main.storyboard */,
+				BA720AEE25A62C20007E8CBA /* CityTableCellView.swift */,
 				BA720AC825A6250E007E8CBA /* Info.plist */,
 				BA720AC925A6250E007E8CBA /* Time_Zone_Compare.entitlements */,
+				BA720AF325A644BF007E8CBA /* City.swift */,
+				BA19EBA225A9C2750065CC1E /* DateTableCellView.swift */,
 			);
 			path = "Time Zone Compare";
 			sourceTree = "<group>";
@@ -254,7 +263,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA720AC225A6250B007E8CBA /* ViewController.swift in Sources */,
+				BA720AEF25A62C20007E8CBA /* CityTableCellView.swift in Sources */,
+				BA720AF425A644BF007E8CBA /* City.swift in Sources */,
 				BA720AC025A6250B007E8CBA /* AppDelegate.swift in Sources */,
+				BA19EBA325A9C2750065CC1E /* DateTableCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
