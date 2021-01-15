@@ -14,8 +14,12 @@ class ViewController: NSViewController {
     
     
     var currTime : Date = Date()
-    
-    
+    var blinkSecond : Bool = true
+    var hourFormatOn : String = "H:mm"
+    var hourFormatOff : String = "H mm"
+
+    var colonValue = ":"
+    var timer : Timer? = nil
     
     var cities : [City] = [
         City(name: "Bucharest", country: "Romania", timezone: "EET", offset: 2.0),
@@ -36,7 +40,7 @@ class ViewController: NSViewController {
         for i in 0...24 {
             tableView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "\(i)"))?.width = 30
         }
-        
+        startTimer()
         // Do any additional setup after loading the view.
     }
     
@@ -46,11 +50,29 @@ class ViewController: NSViewController {
         }
     }
     
+    func startTimer() {
+        timer = Timer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+       
+        if let t = timer {
+            RunLoop.current.add(t, forMode: .common)
+        }
+        
+    }
+    
+    @objc func fireTimer() {
+        self.currTime = Date()
+        self.blinkSecond = !self.blinkSecond
+        DispatchQueue.main.async {
+          //  self.tableView.reloadData()
+            let s = IndexSet(integersIn: 0..<self.tableView.numberOfRows)
+            
+            self.tableView.reloadData(forRowIndexes: s, columnIndexes: IndexSet(integer: 1))
+        }
+    }
+    
     func prettyTime(timeZone:String, format:String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        // dateFormatter.timeStyle = .none
-        
+      
         // Then select your timezone.
         // Either by abbreviation or defaulting to the system timezone.
         dateFormatter.timeZone = TimeZone(identifier: timeZone)
@@ -90,7 +112,8 @@ extension ViewController : NSTableViewDelegate {
         }
         else if cellIdentifier?.rawValue == "Time" {
             if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CityCellID"), owner: nil) as? CityTableCellView {
-                cell.cityLabel?.stringValue = prettyTime(timeZone: cities[row].timezone, format: "H:mm")
+                let hourFormat = blinkSecond ? hourFormatOn : hourFormatOff
+                cell.cityLabel?.stringValue = prettyTime(timeZone: cities[row].timezone, format: hourFormat)
                 cell.countryLabel?.stringValue = "\(cities[row].offset)"
 
                 return cell
@@ -101,7 +124,7 @@ extension ViewController : NSTableViewDelegate {
         }
         else if let hourString = tableColumn?.identifier.rawValue,
                 let cellHour = Int32(hourString) {
-            print("here \(hourString)")
+
             let homeCity = cities[0]
             let currCity = cities[row]
             let offset = Int32(currCity.offset - homeCity.offset)
