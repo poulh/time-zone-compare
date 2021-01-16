@@ -109,22 +109,32 @@ extension ViewController : NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cellIdentifier = tableColumn?.identifier
         let currRowMapItem = mapItems[row]
+        let homeRowMapItem = mapItems[0] // todo: we should check if there is at least one row
+        let currMapItemOffsetFromHomeMapItem = (Int32(currRowMapItem.timeZone!.secondsFromGMT() - homeRowMapItem.timeZone!.secondsFromGMT())) / 3600
         
-        if cellIdentifier?.rawValue == "City" {
-            if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CityCellID"), owner: nil) as? CityTableCellView {
+        if cellIdentifier?.rawValue == "Offset" {
+            if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OffsetCellID"), owner: nil) as? NSTableCellView {
+
+                cell.textField?.stringValue = currMapItemOffsetFromHomeMapItem == 0 ? "⌂" : "\(currMapItemOffsetFromHomeMapItem)"
+              
+                return cell
+            }
+        }
+        else if cellIdentifier?.rawValue == "City" {
+            if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CityCellID"), owner: nil) as? HeadingTableCellView {
                 
-                cell.cityLabel?.stringValue = currRowMapItem.placemark.locality ?? "---"
-                cell.countryLabel?.stringValue = currRowMapItem.placemark.country ?? "---"
+                cell.headingLabel?.stringValue = currRowMapItem.placemark.locality ?? "---"
+                cell.subHeadingLabel?.stringValue = currRowMapItem.placemark.country ?? "---"
 
                 return cell
             }
         }
         else if cellIdentifier?.rawValue == "Time" {
-            if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CityCellID"), owner: nil) as? CityTableCellView {
+            if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CityCellID"), owner: nil) as? HeadingTableCellView {
                 
                 let hourFormat = blinkSecond ? hourFormatOn : hourFormatOff
-                cell.cityLabel?.stringValue = currTime.prettyTime(timeZone: currRowMapItem.timeZone!, format: hourFormat)
-                cell.countryLabel?.intValue = Int32(currRowMapItem.timeZone?.secondsFromGMT() ?? 0) / Int32(3600)
+                cell.headingLabel?.stringValue = currTime.prettyTime(timeZone: currRowMapItem.timeZone!, format: hourFormat)
+                cell.subHeadingLabel?.stringValue = currTime.prettyTime(timeZone: currRowMapItem.timeZone!, format: "EE, MMM DD")
 
                 return cell
             }
@@ -132,24 +142,20 @@ extension ViewController : NSTableViewDelegate {
         else if cellIdentifier?.rawValue == "Last" {
             return nil
         }
-        else if let hourString = tableColumn?.identifier.rawValue,
-                let cellHour = Int32(hourString) {
+        else if let columnHourString = tableColumn?.identifier.rawValue,
+                let columnHour = Int32(columnHourString) {
 
-            let homeRowMapItem = mapItems[0]
-            
-            let offset = (Int32(currRowMapItem.timeZone!.secondsFromGMT() - homeRowMapItem.timeZone!.secondsFromGMT())) / 3600
-
-            var hour = cellHour + offset
-            if hour < 0 {
-                hour += 24
+            var hourToDisplay = columnHour + currMapItemOffsetFromHomeMapItem
+            if hourToDisplay < 0 {
+                hourToDisplay += 24
             }
-            if hour > 23 {
-                hour -= 24
+            if hourToDisplay > 23 {
+                hourToDisplay -= 24
             }
             
             var cell : NSTableCellView? = nil
             
-            if hour == 0,
+            if hourToDisplay == 0,
                let dateCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DateCellID"), owner: nil) as? DateTableCellView {
                 
                 var dateToUse = currTime
@@ -162,7 +168,7 @@ extension ViewController : NSTableViewDelegate {
                 
             } else if let hourCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TableCellID"), owner: nil) as? NSTableCellView {
                 
-                hourCell.textField?.intValue = hour
+                hourCell.textField?.intValue = hourToDisplay
                 cell = hourCell
             }
             else {
@@ -172,21 +178,21 @@ extension ViewController : NSTableViewDelegate {
             if let cell = cell {
                 cell.wantsLayer = true
                 
-                if (9...16).contains(hour) {
+                if (9...16).contains(hourToDisplay) {
                     cell.layer?.backgroundColor = NSColor(named: "DayColor")?.cgColor
                 }
-                else if (17...18).contains(hour) || (7...8).contains(hour) {
+                else if (17...18).contains(hourToDisplay) || (7...8).contains(hourToDisplay) {
                     cell.layer?.backgroundColor = NSColor(named: "EveningColor")?.cgColor
                 }
                 else {
                     cell.layer?.backgroundColor = NSColor(named: "NightColor")?.cgColor
                 }
                 
-                if hour == 0 {
+                if hourToDisplay == 0 {
                     cell.layer?.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
                     cell.layer?.cornerRadius = 12
                 }
-                else if hour == 23 {
+                else if hourToDisplay == 23 {
                     cell.layer?.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
                     cell.layer?.cornerRadius = 12
                 } else {
@@ -224,20 +230,23 @@ extension ViewController : NSSearchFieldDelegate {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = sender.stringValue
         MKLocalSearch(request: request).start { (response, error) in
-            guard let items = response?.mapItems else {
-                return
-            }
-            for item in items {
-                self.mapItems.append(item)
+           
+            if let items = response?.mapItems {
+                for item in items {
+                    self.mapItems.append(item)
+                }
+                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             }
+            
+            DispatchQueue.main.async {
+                sender.resetSearch()
+            }
         }
 
-        DispatchQueue.main.async {
-            sender.resetSearch()
-        }
+       
     }
 }
 

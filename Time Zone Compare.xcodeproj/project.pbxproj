@@ -14,7 +14,7 @@
 		BA720AC725A6250E007E8CBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA720AC525A6250E007E8CBA /* Main.storyboard */; };
 		BA720AD325A6250F007E8CBA /* Time_Zone_CompareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720AD225A6250F007E8CBA /* Time_Zone_CompareTests.swift */; };
 		BA720ADE25A6250F007E8CBA /* Time_Zone_CompareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720ADD25A6250F007E8CBA /* Time_Zone_CompareUITests.swift */; };
-		BA720AEF25A62C20007E8CBA /* CityTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720AEE25A62C20007E8CBA /* CityTableCellView.swift */; };
+		BA720AEF25A62C20007E8CBA /* HeadingTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720AEE25A62C20007E8CBA /* HeadingTableCellView.swift */; };
 		BA720AF425A644BF007E8CBA /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720AF325A644BF007E8CBA /* City.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +50,7 @@
 		BA720AD925A6250F007E8CBA /* Time Zone CompareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Time Zone CompareUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA720ADD25A6250F007E8CBA /* Time_Zone_CompareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time_Zone_CompareUITests.swift; sourceTree = "<group>"; };
 		BA720ADF25A6250F007E8CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA720AEE25A62C20007E8CBA /* CityTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableCellView.swift; sourceTree = "<group>"; };
+		BA720AEE25A62C20007E8CBA /* HeadingTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingTableCellView.swift; sourceTree = "<group>"; };
 		BA720AF325A644BF007E8CBA /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +106,7 @@
 				BA720AC125A6250B007E8CBA /* ViewController.swift */,
 				BA720AC325A6250E007E8CBA /* Assets.xcassets */,
 				BA720AC525A6250E007E8CBA /* Main.storyboard */,
-				BA720AEE25A62C20007E8CBA /* CityTableCellView.swift */,
+				BA720AEE25A62C20007E8CBA /* HeadingTableCellView.swift */,
 				BA720AC825A6250E007E8CBA /* Info.plist */,
 				BA720AC925A6250E007E8CBA /* Time_Zone_Compare.entitlements */,
 				BA720AF325A644BF007E8CBA /* City.swift */,
@@ -263,7 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA720AC225A6250B007E8CBA /* ViewController.swift in Sources */,
-				BA720AEF25A62C20007E8CBA /* CityTableCellView.swift in Sources */,
+				BA720AEF25A62C20007E8CBA /* HeadingTableCellView.swift in Sources */,
 				BA720AF425A644BF007E8CBA /* City.swift in Sources */,
 				BA720AC025A6250B007E8CBA /* AppDelegate.swift in Sources */,
 				BA19EBA325A9C2750065CC1E /* DateTableCellView.swift in Sources */,

@@ -7,10 +7,10 @@
 
 import Cocoa
 
-class CityTableCellView: NSTableCellView {
+class HeadingTableCellView: NSTableCellView {
 
-    @IBOutlet weak var cityLabel: NSTextField!
-    @IBOutlet weak var countryLabel: NSTextField!
+    @IBOutlet weak var headingLabel: NSTextField!
+    @IBOutlet weak var subHeadingLabel: NSTextField!
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
