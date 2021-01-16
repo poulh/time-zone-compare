@@ -6,11 +6,28 @@
 //
 
 import Cocoa
+import MapKit
+
+extension Date {
+    func prettyTime(timeZone:TimeZone, format:String) -> String {
+        let dateFormatter = DateFormatter()
+      
+        // Then select your timezone.
+        // Either by abbreviation or defaulting to the system timezone.
+        dateFormatter.timeZone =  timeZone
+        dateFormatter.dateFormat = format
+        
+        let dateString = dateFormatter.string(from: self)
+        return dateString
+    }
+}
 
 class ViewController: NSViewController {
     
     @IBOutlet weak var tableView: NSTableView!
-    @IBOutlet weak var textView: NSTextField!
+
+    
+    @IBOutlet weak var searchField: NSSearchField!
     
     
     var currTime : Date = Date()
@@ -21,26 +38,21 @@ class ViewController: NSViewController {
     var colonValue = ":"
     var timer : Timer? = nil
     
-    var cities : [City] = [
-        City(name: "Bucharest", country: "Romania", timezone: "EET", offset: 2.0),
-        City(name: "Moscow", country: "Russia", timezone: "MSD", offset: 3.0),
-        City(name: "New York", country: "USA", timezone: "EST", offset: -5.0),
-        City(name: "London", country: "England", timezone: "GMT", offset: 0.0),
-        City(name: "Hong Kong", country: "Hong Kong", timezone: "HKT", offset: 8.0),
-        City(name: "Beijing", country: "China", timezone: "CST", offset: 8.0),
-    ]
-    
+    var mapItems : [MKMapItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        searchField.delegate = self
+        
         tableView.intercellSpacing = NSSize(width: 0, height: 20)
         
         for i in 0...24 {
             tableView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "\(i)"))?.width = 30
         }
         startTimer()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -51,47 +63,30 @@ class ViewController: NSViewController {
     }
     
     func startTimer() {
+        
+        // add Timer via RunLoop allows the ':' to blink even during Window resize
         timer = Timer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
        
         if let t = timer {
             RunLoop.current.add(t, forMode: .common)
         }
-        
     }
     
     @objc func fireTimer() {
         self.currTime = Date()
         self.blinkSecond = !self.blinkSecond
         DispatchQueue.main.async {
-          //  self.tableView.reloadData()
             let s = IndexSet(integersIn: 0..<self.tableView.numberOfRows)
             
             self.tableView.reloadData(forRowIndexes: s, columnIndexes: IndexSet(integer: 1))
         }
     }
-    
-    func prettyTime(timeZone:String, format:String) -> String {
-        let dateFormatter = DateFormatter()
-      
-        // Then select your timezone.
-        // Either by abbreviation or defaulting to the system timezone.
-        dateFormatter.timeZone = TimeZone(identifier: timeZone)
-        dateFormatter.dateFormat = format
-        //  dateFormatter.timeZone = TimeZone.current
-        
-        let dateString = dateFormatter.string(from: currTime)
-        return dateString
-    }
-    
-    
 }
 
 extension ViewController : NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return cities.count
+        return mapItems.count
     }
-    
-    
 }
 
 extension ViewController : NSTableViewDelegate {
@@ -99,22 +94,37 @@ extension ViewController : NSTableViewDelegate {
         return 50.0
     }
     
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        return false
+    }
+    
+    func tableView(_ tableView: NSTableView, shouldSelect tableColumn: NSTableColumn?) -> Bool {
+        return true
+    }
+    
+    func selectionShouldChange(in tableView: NSTableView) -> Bool {
+        return true
+    }
+    
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cellIdentifier = tableColumn?.identifier
+        let currRowMapItem = mapItems[row]
         
         if cellIdentifier?.rawValue == "City" {
             if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CityCellID"), owner: nil) as? CityTableCellView {
-                cell.cityLabel?.stringValue = cities[row].name
-                cell.countryLabel?.stringValue = cities[row].country
+                
+                cell.cityLabel?.stringValue = currRowMapItem.placemark.locality ?? "---"
+                cell.countryLabel?.stringValue = currRowMapItem.placemark.country ?? "---"
 
                 return cell
             }
         }
         else if cellIdentifier?.rawValue == "Time" {
             if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CityCellID"), owner: nil) as? CityTableCellView {
+                
                 let hourFormat = blinkSecond ? hourFormatOn : hourFormatOff
-                cell.cityLabel?.stringValue = prettyTime(timeZone: cities[row].timezone, format: hourFormat)
-                cell.countryLabel?.stringValue = "\(cities[row].offset)"
+                cell.cityLabel?.stringValue = currTime.prettyTime(timeZone: currRowMapItem.timeZone!, format: hourFormat)
+                cell.countryLabel?.intValue = Int32(currRowMapItem.timeZone?.secondsFromGMT() ?? 0) / Int32(3600)
 
                 return cell
             }
@@ -125,10 +135,10 @@ extension ViewController : NSTableViewDelegate {
         else if let hourString = tableColumn?.identifier.rawValue,
                 let cellHour = Int32(hourString) {
 
-            let homeCity = cities[0]
-            let currCity = cities[row]
-            let offset = Int32(currCity.offset - homeCity.offset)
+            let homeRowMapItem = mapItems[0]
             
+            let offset = (Int32(currRowMapItem.timeZone!.secondsFromGMT() - homeRowMapItem.timeZone!.secondsFromGMT())) / 3600
+
             var hour = cellHour + offset
             if hour < 0 {
                 hour += 24
@@ -141,8 +151,13 @@ extension ViewController : NSTableViewDelegate {
             
             if hour == 0,
                let dateCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DateCellID"), owner: nil) as? DateTableCellView {
-                dateCell.monthLabel.stringValue = "Jan"
-                dateCell.dayLabel.stringValue = "9"
+                
+                var dateToUse = currTime
+                if currRowMapItem.timeZone!.secondsFromGMT() > homeRowMapItem.timeZone!.secondsFromGMT() {
+                    dateToUse = dateToUse + (60 * 60 * 24)
+                }
+                dateCell.monthLabel.stringValue = dateToUse.prettyTime(timeZone: homeRowMapItem.timeZone!, format: "MMM")
+                dateCell.dayLabel.stringValue = dateToUse.prettyTime(timeZone: homeRowMapItem.timeZone!, format: "DD")
                 cell = dateCell
                 
             } else if let hourCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TableCellID"), owner: nil) as? NSTableCellView {
@@ -174,6 +189,9 @@ extension ViewController : NSTableViewDelegate {
                 else if hour == 23 {
                     cell.layer?.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
                     cell.layer?.cornerRadius = 12
+                } else {
+                    cell.layer?.cornerRadius = 0
+                    cell.layer?.maskedCorners = []
                 }
                 
                 cell.layer?.borderColor = NSColor.white.cgColor
@@ -186,5 +204,40 @@ extension ViewController : NSTableViewDelegate {
         return nil
     }
     
+}
+
+extension NSSearchField {
+    func resetSearch() {
+        if let searchFieldCell = self.cell as? NSSearchFieldCell {
+            searchFieldCell.cancelButtonCell?.performClick(self)
+        }
+    }
+}
+
+extension ViewController : NSSearchFieldDelegate {
+   
+    func searchFieldDidEndSearching(_ sender: NSSearchField) {
+    }
+    
+    func searchFieldDidStartSearching(_ sender: NSSearchField) {
+        
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = sender.stringValue
+        MKLocalSearch(request: request).start { (response, error) in
+            guard let items = response?.mapItems else {
+                return
+            }
+            for item in items {
+                self.mapItems.append(item)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+
+        DispatchQueue.main.async {
+            sender.resetSearch()
+        }
+    }
 }
 
