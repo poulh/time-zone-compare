@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA19EBA325A9C2750065CC1E /* DateTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA19EBA225A9C2750065CC1E /* DateTableCellView.swift */; };
+		BA19EBFF25B4963C0065CC1E /* StackedImageTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA19EBFE25B4963C0065CC1E /* StackedImageTableCellView.swift */; };
 		BA720AC025A6250B007E8CBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720ABF25A6250B007E8CBA /* AppDelegate.swift */; };
 		BA720AC225A6250B007E8CBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA720AC125A6250B007E8CBA /* ViewController.swift */; };
 		BA720AC425A6250E007E8CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA720AC325A6250E007E8CBA /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		BA19EBA225A9C2750065CC1E /* DateTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableCellView.swift; sourceTree = "<group>"; };
+		BA19EBFE25B4963C0065CC1E /* StackedImageTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedImageTableCellView.swift; sourceTree = "<group>"; };
 		BA720ABC25A6250B007E8CBA /* Time Zone Compare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time Zone Compare.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA720ABF25A6250B007E8CBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA720AC125A6250B007E8CBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				BA720AC325A6250E007E8CBA /* Assets.xcassets */,
 				BA720AC525A6250E007E8CBA /* Main.storyboard */,
 				BA720AEE25A62C20007E8CBA /* HeadingTableCellView.swift */,
+				BA19EBFE25B4963C0065CC1E /* StackedImageTableCellView.swift */,
 				BA720AC825A6250E007E8CBA /* Info.plist */,
 				BA720AC925A6250E007E8CBA /* Time_Zone_Compare.entitlements */,
 				BA720AF325A644BF007E8CBA /* City.swift */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA720AC225A6250B007E8CBA /* ViewController.swift in Sources */,
+				BA19EBFF25B4963C0065CC1E /* StackedImageTableCellView.swift in Sources */,
 				BA720AEF25A62C20007E8CBA /* HeadingTableCellView.swift in Sources */,
 				BA720AF425A644BF007E8CBA /* City.swift in Sources */,
 				BA720AC025A6250B007E8CBA /* AppDelegate.swift in Sources */,

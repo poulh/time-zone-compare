@@ -29,7 +29,7 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var searchField: NSSearchField!
     
-    
+    var homeRow = 0
     var currTime : Date = Date()
     var blinkSecond : Bool = true
     var hourFormatOn : String = "H:mm"
@@ -109,10 +109,17 @@ extension ViewController : NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cellIdentifier = tableColumn?.identifier
         let currRowMapItem = mapItems[row]
-        let homeRowMapItem = mapItems[0] // todo: we should check if there is at least one row
+        let homeRowMapItem = mapItems[homeRow] // todo: we should check if there is at least one row
         let currMapItemOffsetFromHomeMapItem = (Int32(currRowMapItem.timeZone!.secondsFromGMT() - homeRowMapItem.timeZone!.secondsFromGMT())) / 3600
         
-        if cellIdentifier?.rawValue == "Offset" {
+        if cellIdentifier?.rawValue == "HomeDelete" {
+            if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HomeDeleteCellID"), owner: nil) as? StackedImageTableCellView {
+                cell.delegate = self
+                cell.id = "\(row)"
+                return cell
+            }
+        }
+        else if cellIdentifier?.rawValue == "Offset" {
             if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OffsetCellID"), owner: nil) as? NSTableCellView {
 
                 cell.textField?.stringValue = currMapItemOffsetFromHomeMapItem == 0 ? "⌂" : "\(currMapItemOffsetFromHomeMapItem)"
@@ -250,3 +257,25 @@ extension ViewController : NSSearchFieldDelegate {
     }
 }
 
+extension ViewController : StackedImageTableCellDelegate {
+    func onTopImageButtonPressed(_ id: String) {
+
+        if let row = Int(id) {
+            self.homeRow = row
+            tableView.reloadData()
+        }
+    }
+    
+    func onBottomImageButtonPressed(_ id: String) {
+        if let row = Int(id) {
+            self.mapItems.remove(at: row)
+            if homeRow == row {
+                homeRow  = 0
+            }
+            else if row < homeRow {
+                homeRow = homeRow - 1
+            }
+            tableView.reloadData()
+        }
+    }
+}
