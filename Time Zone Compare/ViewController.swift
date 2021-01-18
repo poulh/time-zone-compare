@@ -252,10 +252,10 @@ extension ViewController : NSSearchFieldDelegate {
             if let items = response?.mapItems {
                 for item in items {
                     self.mapItems.append(item)
-                }
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.insertRows(at: IndexSet(integer: self.mapItems.count - 1 ), withAnimation: .slideDown)
+                    }
                 }
             }
             
@@ -286,7 +286,10 @@ extension ViewController : StackedImageTableCellDelegate {
             else if row < homeRow {
                 homeRow = homeRow - 1
             }
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.removeRows(at: IndexSet(integer: row), withAnimation: .slideUp)
+                self.tableView.reloadData()
+            }
         }
     }
 }
