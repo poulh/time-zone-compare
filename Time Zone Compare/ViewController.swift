@@ -122,11 +122,20 @@ extension ViewController : NSTableViewDelegate {
             }
         }
         else if cellIdentifier?.rawValue == "Offset" {
-            if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OffsetCellID"), owner: nil) as? NSTableCellView {
+            if currMapItemOffsetFromHomeMapItem == 0 {
+                if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HomeImageCellID"), owner: nil) /*as? NSTableCellView*/ {
 
-                cell.textField?.stringValue = currMapItemOffsetFromHomeMapItem == 0 ? "⌂" : "\(currMapItemOffsetFromHomeMapItem)"
-              
-                return cell
+                  //  cell.textField?.stringValue = currMapItemOffsetFromHomeMapItem == 0 ? "⌂" : "\(currMapItemOffsetFromHomeMapItem)"
+                  
+                    return cell
+                }
+            } else {
+                if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OffsetCellID"), owner: nil) as? NSTableCellView {
+
+                    cell.textField?.stringValue = currMapItemOffsetFromHomeMapItem > 0 ?  "+\(currMapItemOffsetFromHomeMapItem)" : "\(currMapItemOffsetFromHomeMapItem)"
+                  
+                    return cell
+                }
             }
         }
         else if cellIdentifier?.rawValue == "City" {

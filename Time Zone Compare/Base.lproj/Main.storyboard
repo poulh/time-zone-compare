@@ -785,8 +785,23 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
+                                                        <tableCellView identifier="HomeImageCellID" id="zm3-M2-30b" customClass="ImageTableCellView" customModule="Time_Zone_Compare" customModuleProvider="target">
+                                                            <rect key="frame" x="34" y="1" width="30" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="esI-7K-D1j">
+                                                                    <rect key="frame" x="0.0" y="1" width="30" height="30"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSHomeTemplate" id="VBa-Rs-ILD"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="esI-7K-D1j" firstAttribute="top" secondItem="zm3-M2-30b" secondAttribute="top" constant="15" id="E8t-45-qT0"/>
+                                                                <constraint firstItem="esI-7K-D1j" firstAttribute="trailing" secondItem="zm3-M2-30b" secondAttribute="trailing" id="NYq-1B-RUp"/>
+                                                                <constraint firstItem="esI-7K-D1j" firstAttribute="leading" secondItem="zm3-M2-30b" secondAttribute="leading" id="vNp-CG-BsO"/>
+                                                            </constraints>
+                                                        </tableCellView>
                                                         <tableCellView identifier="OffsetCellID" id="QRG-7j-A1z">
-                                                            <rect key="frame" x="34" y="1" width="30" height="17"/>
+                                                            <rect key="frame" x="34" y="33" width="30" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="WFa-bT-N7v">
