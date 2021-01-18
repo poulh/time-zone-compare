@@ -25,8 +25,6 @@ extension Date {
 class ViewController: NSViewController {
     
     @IBOutlet weak var tableView: NSTableView!
-
-    
     @IBOutlet weak var searchField: NSSearchField!
     
     var homeRow = 0
@@ -42,6 +40,9 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        
         tableView.delegate = self
         tableView.dataSource = self
         searchField.delegate = self
@@ -51,10 +52,11 @@ class ViewController: NSViewController {
         for i in 0...24 {
             tableView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "\(i)"))?.width = 30
         }
-        startTimer()
         
-        // Do any additional setup after loading the view.
+        startTimer()
+
     }
+    
     
     override var representedObject: Any? {
         didSet {
